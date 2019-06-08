@@ -1,0 +1,60 @@
+<!-- // METHODS TO SUBMIT MOVIE AND REQUIRE A REVIEW
+  // VALIDATIONS 
+  // NESTED COMPONENTS <APP-TASK>
+ -->
+
+ <style>
+  .labels{
+      display: inline-block;
+      width: 15%;
+      
+    }
+    .inputfield{
+      display: inline-block;
+      width: 35%;
+      vertical-align: top;
+    }
+    textarea{
+      min-height: 300px;
+    }
+    .inputNum{
+      width: 56%;
+    }
+ 
+  
+  </style>
+
+
+<div>
+  <h3>Register a New Restaurant</h3>
+
+
+  <form (submit)="newRestaurant()">
+      <label for="restaurant.restaurant">Restaurant Name</label><br>
+      <input type="text" name="restaurant.restaurant" [(ngModel)]="restaurant.restaurant" /><br>
+
+      <label for="restaurant.cuisine">Cuisine</label><br>
+      <input type="text" name="restaurant.cuisine" [(ngModel)]="restaurant.cuisine" /><br>
+
+     <!-- copy over to the review page -->
+      <!-- <label for="restaurant.cuisine">Cuisine</label><br>
+      <input type="text" name="review.name" [(ngModel)]="review.name" /><br>
+
+      <label for="review.stars">Stars</label><br>
+      <input class="inputNum" type="number" min="1" max="5" name="review.stars" [(ngModel)]="review.stars" /><br>
+
+      <label for="review.message">Your Review</label><br>
+      <input type="textarea" name="review.message" [(ngModel)]="review.message" /><br> -->
+
+
+      <input type="submit" value="Register"/>
+  </form>
+
+  <button type="submit" class="btn btn-warning" [routerLink]="['/restaurants']">Cancel</button>
+
+  <p *ngIf="restaurant.restaurant.length < 3 &&  restaurant.restaurant.length > 1 "> Restaurant must be at least 3 char. long</p>
+  <p *ngIf="restaurant.cuisine.length < 3 && restaurant.cuisine.length > 1 "> Cuisine must be at least 3 char. long</p>
+  <!-- <p *ngIf="review.message.length < 3 && review.message.length > 1">Review be at least 3 char. long</p> -->
+
+
+</div>

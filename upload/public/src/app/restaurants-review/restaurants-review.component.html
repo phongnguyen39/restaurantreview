@@ -1,0 +1,83 @@
+<style>
+  .product_card {
+      display: inline-block;
+      vertical-align: top;
+      margin: 1%;
+      padding: 5%;
+      border: .5px solid gray;
+      width: 250px;
+      height: 340px;
+    }
+  
+    .card{
+        vertical-align: top;
+        height: 20%;
+        width: 20%;
+        
+    }
+    img{
+      height: 50%;
+      width: 50%;
+    }
+    .product_list{
+      /* overflow:auto; */
+        min-width: 15%;
+        min-height: 30%;
+      display: inline-block;
+        vertical-align: top;
+        overflow: auto;
+    }
+    .btn{
+      /* width: 76px; */
+      /* text-align: center; */
+    }
+  </style>
+<div class="router_container">
+  <h3>Reviews for {{restaurant.restaurant}}</h3>
+  <!-- <table class="table product-list">
+        <thead>
+          <th >Your Name</th>
+          <th >Stars</th>
+          <th >Your Review</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let review of reviews" >
+            <td width= "15%">{{review.name}}</td>
+            <td width= "5%">{{review.stars}}</td>
+            <td width= "25%">
+              <button type="submit" class="btn btn-secondary" [routerLink]="['/restaurants/',restaurant._id]">Cancel</button><br>
+              <button type="submit" class="btn btn-primary" (click)="newReview">Submit</button><br>
+            </td>
+            
+          </tr>
+        </tbody>
+      </table> -->
+
+
+  <form (submit)="newReview(restaurant._id)">
+
+    <label for="review.name">Your name</label><br>
+    <input type="text" name="review.name" [(ngModel)]="review.name" /><br>
+    <label for="review.stars">Stars</label><br>
+    <select name="review.stars" [(ngModel)]="review.stars">
+      <option selected >5</option>
+      <option >4</option>
+      <option >3</option>
+      <option >2</option>
+      <option >1</option>
+    </select><br>
+    <!-- <input class="inputNum" type="number" min="1" max="5" name="review.stars" [(ngModel)]="review.stars" /><br> -->
+
+    <label for="review.message">Your Review</label><br>
+    <input type="textarea" name="review.message" [(ngModel)]="review.message" /><br>
+
+    <input type="submit" value="Submit" />
+
+  </form>
+  <button type="submit" class="btn btn-warning" [routerLink]="['/restaurants/'+restaurant._id]">Cancel</button>
+
+  <p *ngIf="review.name.length < 3 && review.name.length >= 1 "> Name must be at least 3 char. long</p>
+  <p *ngIf="review.message.length < 3 && review.message.length >= 1">Review be at least 3 char. long</p>
+  <p *ngIf="review.stars > 5 && review.stars < 1">Stars must be 1 to 5</p>
+
+</div>

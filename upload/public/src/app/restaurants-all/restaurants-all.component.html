@@ -1,0 +1,63 @@
+<style>
+  .product_card {
+      display: inline-block;
+      vertical-align: top;
+      margin: 1%;
+      padding: 5%;
+      border: .5px solid gray;
+      width: 250px;
+      height: 340px;
+    }
+  
+    .card{
+        vertical-align: top;
+        height: 20%;
+        width: 20%;
+        
+    }
+    img{
+      height: 50%;
+      width: 50%;
+    }
+    .product_list{
+      /* overflow:auto; */
+        min-width: 15%;
+        min-height: 30%;
+      display: inline-block;
+        vertical-align: top;
+        overflow: auto;
+    }
+    .btn{
+      /* width: 76px; */
+      /* text-align: center; */
+    }
+  </style>
+  <div class="router_container">
+      <h3>LET'S EAT</h3>
+      <table class="table product-list">
+        <thead>
+          <th >Restaurant</th>
+          <th >Cuisine</th>
+          <th >Actions</th>
+        </thead>
+        <tbody>
+          <tr *ngFor="let restaurant of restaurants" >
+            <td width= "15%">{{restaurant.restaurant}}</td>
+            <td width= "5%">{{restaurant.cuisine}}</td>
+            <td width= "25%">
+              <button type="submit" class="btn btn-primary" [routerLink]="['/restaurants/',restaurant._id]">Reviews</button>
+              <button type="submit" class="btn btn-secondary" [routerLink]="['/restaurants/'+restaurant._id+'/edit']">Update</button>
+              <!-- <button type="submit" class="btn btn-danger" [routerLink]="['/restaurants/delete/'+restaurant._id]">Delete</button> -->
+              <button type="submit" class="btn btn-danger" (click)="deleteRestaurant(restaurant._id)">Delete</button>
+            </td>
+            
+          </tr>
+        </tbody>
+      </table>
+
+      <div *ngIf="editdefault"><app-restaurants-edit></app-restaurants-edit></div>
+      
+  
+  </div>
+
+  

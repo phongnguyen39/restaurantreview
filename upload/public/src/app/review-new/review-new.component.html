@@ -1,0 +1,46 @@
+<!-- // METHODS TO SUBMIT MOVIE AND REQUIRE A REVIEW
+  // VALIDATIONS 
+  // NESTED COMPONENTS <APP-TASK>
+ -->
+
+ <style>
+    .labels{
+      display: inline-block;
+      width: 15%;
+      
+    }
+    .inputfield{
+      display: inline-block;
+      width: 35%;
+      vertical-align: top;
+    }
+    textarea{
+      min-height: 300px;
+    }
+    .inputNum{
+      width: 56%;
+    }
+ 
+  
+  </style>
+ 
+ 
+  <div ></div>
+     <h3>Add a review for {{restaurant.title}} </h3>
+     <form (submit)="newReview(restaurant._id)">
+
+           <label for="review.name">Your sadfsdfaasdfname</label><br>
+           <input type="text" name="review.name" [(ngModel)]="review.name" /><br>
+           <label for="review.stars">Stars</label><br>
+           <input   type="number" min="1" max="5" name="review.stars" [(ngModel)]="review.stars" /><br>
+           <label for="review.message">Your Review</label><br>
+           <input type="textarea"  name="review.message" [(ngModel)]="review.message" /><br>
+           <input type="submit" value="Submit" /><button type="submit" class="btn btn-warning" (click)="newReview(restaurant._id)">
+     </form>
+
+     <button type="submit" class="btn btn-secondary" [routerLink]="['/restaurants/'+restaurant._id+'']">Cancel</button><br>
+     <p *ngIf="review.name.length < 3 && review.name.length > 1 "> Name must be at least 3 char. long</p>
+     <p *ngIf="review.message.length < 3 && review.message.length > 1">Review be at least 3 char. long</p>
+ 
+   
+ </div>

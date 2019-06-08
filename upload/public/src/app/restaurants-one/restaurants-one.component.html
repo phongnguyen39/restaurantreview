@@ -1,0 +1,55 @@
+<style>
+  .product_card {
+      display: inline-block;
+      vertical-align: top;
+      margin: 1%;
+      padding: 5%;
+      border: .5px solid gray;
+      width: 250px;
+      height: 340px;
+    }
+  
+    .card{
+        vertical-align: top;
+        height: 20%;
+        width: 20%;
+        
+    }
+    img{
+      height: 50%;
+      width: 50%;
+    }
+    .product_list{
+      /* overflow:auto; */
+        min-width: 15%;
+        min-height: 30%;
+      display: inline-block;
+        vertical-align: top;
+        overflow: auto;
+    }
+    /* .btn{
+      width: 76px;
+      text-align: center;
+    } */
+  </style>
+  <div class="router_container">
+      <h3>Reviews for {{restaurant.restaurant}}</h3>
+      <button type="submit" class="btn btn-danger" [routerLink]="['/restaurants/'+restaurant._id+'/review']">NEW REVIEW </button>
+      <!-- <button type="submit" class="btn btn-danger" (click)="newReview(restaurant._id)">NEW REVIEW </button> -->
+      <table class="table product-list">
+        <thead>
+          <th >Customer</th>
+          <th >Stars</th>
+          <th >Reviews</th>
+          <!-- <th >Action</th> -->
+        </thead>
+        <tbody>
+          <tr *ngFor="let reviews of reviews.reviews | keyvalue" >
+            <td >{{reviews.value.name}}</td>  
+            <td >{{reviews.value.stars}}</td>
+            <td >{{reviews.value.message}} </td>
+              <!-- <td> <button type="submit" class="btn btn-danger" (click)="deleteReview(reviews.value._id)">DELETE REVIEW</button>  </td> -->
+          </tr>
+        </tbody>
+      </table>
+  </div>

@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+    crossorigin="anonymous">
+    <link href="https://fonts.googleapis.com/css?family=Source+Code+Pro" rel="stylesheet">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Movies</title>
+</head>
+<style>
+  .router_container {
+    border: .5px solid rgb(216, 216, 216);
+    padding: 2%;
+    margin-bottom: 5%;
+    box-shadow: 1px 1px rgb(216, 216, 216);
+    text-align: center;
+    background: rgba(255, 255, 255, 0.822);
+  }
+  *{
+    font-family: 'Source Code Pro', monospace;
+  }
+  .background_img {
+    position: fixed;
+    
+    background-image: url("https://cdn.vox-cdn.com/thumbor/uva0Ah5VPBjtKKY6OiSg94rseX0=/0x0:1213x807/1200x800/filters:focal(510x307:704x501)/cdn.vox-cdn.com/uploads/chorus_image/image/49044513/modern_bw.0.0.jpg");
+    background-repeat: repeat;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    z-index: -100;
+  }
+
+  .overlay {
+    padding: 2% 0% 2% 0%;
+    z-index: 0;
+    height: 100vh;
+    width: 100vw;
+    background: rgba(37, 37, 37, 0.459);
+  }
+
+  body {
+    /* padding: 5%; */
+    padding: 10%;
+    z-index: 1;
+    height: 100vh;
+    width: 100vw;
+    background: none;
+    overflow: auto;
+  }
+
+
+
+  h1, a{
+    color: white;
+    text-shadow: 1px 1px black;
+  }
+  a{
+    font-size: 150%;
+  }
+</style>
+
+<div class="background_img">
+    
+  <div class="overlay">
+      <h1 style="text-align: center"><strong>LET'S EAT</strong></h1>
+      
+        <!-- NAVIGATION BAR -->
+        <strong>
+        <ul class="nav justify-content-center">
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/restaurants']" href="#!">RESTAURANT LIST    |</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/restaurants/new']" href="#!">NEW RESTAURANT</a>
+            </li>
+            <!-- <li class="nav-item">
+                <a class="nav-link" [routerLink]="['/movies/:id']" href="#!">MOVIE DETAILS    |</a>
+              </li>
+            <li class="nav-item">
+              <a class="nav-link" [routerLink]="['/movies/:id/review']" href="#!">SUBMIT A REVIEW</a>
+            </li> -->
+          </ul>
+        </strong>
+       
+    <body>
+      <div class="container">
+        <!-- BEGINNING OF DOCUMENT------------------ -->
+        
+
+
+        <div class="router_container">
+
+
+          <!-- ROUTERS -->
+          <router-outlet>
+            
+
+          </router-outlet>
+
+
+        </div>
+
+        <!-- END OF DOCUMENT------------------ -->
+      </div>
+    </body>
+  </div>
+</div>
+
+</html>
